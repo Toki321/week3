@@ -14,6 +14,7 @@ describe('ECDH test', () => {
   }, 15000);
 
   it('should encrypt/decrypt text', async () => {
+    
     const { privKey: bobPrivKey, pubKey: bobPubKey } = genKeypair(eddsa);
     const { privKey: alicePrivKey, pubKey: alicePubKey } = genKeypair(eddsa);
     const ecdhSharedKey = await genEcdhSharedKey({
@@ -41,6 +42,7 @@ describe('ECDH test', () => {
   });
 
   it('should fail if decrypted with incorrect public key', async () => {
+    
     const { privKey: bobPrivKey, pubKey: bobPubKey } = genKeypair(eddsa);
     const { privKey: alicePrivKey } = genKeypair(eddsa);
 

@@ -5,6 +5,7 @@ include "../../node_modules/circomlib/circuits/bitify.circom";
 include "../../node_modules/circomlib/circuits/poseidon.circom";
 
 template HitAndBlow() {
+    
     // Public inputs
     signal input pubGuessA;
     signal input pubGuessB;
@@ -36,7 +37,7 @@ template HitAndBlow() {
     // Create a constraint that the solution and guess digits are all less than 10.
     for (j=0; j<4; j++) {
         lessThan[j] = LessThan(4);
-        lessThan[j].in[0] <== guess[j];
+        lessThan[j].in[0] <== guess[j]; // 0 0 0 0
         lessThan[j].in[1] <== 10;
         lessThan[j].out === 1;
         lessThan[j+4] = LessThan(4);
